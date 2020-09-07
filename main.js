@@ -1,5 +1,5 @@
 //method 2 to create a filter
-
+ 
 Vue.filter('uppercase', function(value){
     return value.toUpperCase();
 });
