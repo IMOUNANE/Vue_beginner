@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{greet}}</h1>
+        <h1>{{now}}</h1>
+        <img :src="imgSrc" width="200">
+       
+        <h1> String reverse: {{stringRev}}</h1>
+        
+       <!-- <div>{{htmlContent}}</div> error --> 
+        <div v-html="htmlContent"></div>
+
+        <!-- show Message with click directive -->
+        <button v-on:click="changeText">Change text</button>
+        <h1>{{message}}</h1>
+
+        <!-- show Date with click directive -->
+        <button @click="showDate">Show Date Time</button>
+        <h1>{{date}}</h1>
+
+        <!-- increment with click directive -->
+        <button @click="counterData">Click To Count</button>
+        <h1>{{counter}}</h1>
+        
+        <!-- change color propertie css with click directive -->
+        <button @click="changeColor">Change BG color</button>
+        <h1 :style={color:colorText,background:bgColor}>{{colorText}}</h1>
+
+
+        <input type="text" v-model="seen">
+        <h1 v-if="seen=='A'">A block</h1>
+        <h1 v-else-if="seen=='B'">B block</h1>
+        <h1 v-else-if="seen=='C'">C block</h1>
+        <h1 v-else-if="seen=='D'">D block</h1>
+        <h1 v-else>Else block</h1>
+
+
+         <!-- Toggle button  -->
+        <button @click="dataToggle= !dataToggle"> Show / Hide</button>
+        <div v-if="dataToggle">
+            <h3>Welcome to the Jungle</h3>
+            <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis labore nostrum repudiandae autem sit inventore voluptate corrupti pariatur soluta, vero sint, amet molestias dolorem quo laboriosam, fuga perspiciatis sunt. Rerum.</h5>
+        </div>
+
+
+        <!-- Loop for  -->
+        <div>
+            <h2>
+                <ol>
+                    <li v-for="data in datas">{{data.name}} your age is {{data.age}}</li>
+                </ol>
+            </h2>
+        </div>
+        
+        <div>
+            <input type="text" v-model="name" placeholder="Enter name">
+            <h3>Your name is : {{name}}</h3>
+        </div>
+
+        <div>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="chekbox">{{checked}}</label>
+        </div>
+        <div>
+        
+            <input type="checkbox" id="harry" value="Harry" v-model="checkname">
+            <label for="harry">Harry</label>
+
+            <input type="checkbox" id="hermione" value="Hermione" v-model="checkname">
+            <label for="hermione">Hermione</label>
+
+            <input type="checkbox" id="ron" value="Ron" v-model="checkname">
+            <label for="ron">Ron</label>
+
+            <br>
+            <h3> Checked names : {{checkname}}</h3>
+        </div>
+
+        <div>
+            <input type="radio" id="male" value="Male" v-model="picked">
+            <label for="male">Male</label>
+
+            <br>
+
+            <input type="radio" id="female" value="Female" v-model="picked">
+            <label for="female">Female</label>
+
+            <br>
+
+            <h3>Picked :  {{picked}}</h3>
+
+            <select v-model="selected">
+                <option v-for="data in datas">{{data.name}}</option>
+            </select>
+            <h3>Selected : {{selected}} </h3>
+           
+            <div>
+                <input type="number" v-model.number="num1">
+                +
+                <input type="number" v-model.number="num2">
+                <br>
+                <h3>Sum : {{sum}}</h3>
+            </div>
+            <div>
+                <input type="text" v-model="message">
+                <h1>{{message|capitalize}}</h1>
+                <h1> Number of characters {{ message| counterletter }}</h1>
+            </div>
+            <div>
+                <button @click="counter+=1"> Reapeat the Text</button>
+                <button @click="showtext= !showtext"> Show / Hide</button>
+
+                <h1 v-if="showtext">{{message|  repeatText(counter)}}</h1>
+            </div>
+            
+            <div>
+                <!-- First component-->
+                <greeting></greeting>
+                <!--  Button click Component-->
+                <button-counter></button-counter>
+            </div>
+                            
+
+
+        </div>
+
+
+
+
+    </div> 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript" src="main.js"></script>
+    
+</body>
+</html>
