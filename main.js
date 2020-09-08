@@ -121,3 +121,16 @@ new Vue({
    
 
 })
+
+var app_one= new Vue({
+    el:'#vue-app-one',
+    data: {
+        msg: 'Hi! There! I am 1st Instance'
+    }
+});
+var app_two= new Vue({
+    el:'#vue-app-two',
+    data: {
+        msg: 'Hi! There! I am 2nd Instance'
+    }
+});
