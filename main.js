@@ -1,5 +1,5 @@
 //method 2 to create a filter
-
+ 
 Vue.filter('uppercase', function(value){
     return value.toUpperCase();
 });
@@ -14,6 +14,23 @@ Vue.component('button-counter',{
         }
     },
     template: '<button @click="count++"> Yon cliked me {{count}} times.</button>'
+})
+Vue.component('change-msg',{
+    data(){
+        return{
+            message: "component message"
+        }
+    },
+    methods:{
+        changeText(){
+            this.message="Another message";
+        },  
+    },
+    template:'<div><h1>{{message}}</h1><button @click="changeText">Change Text</button></div>'
+})
+Vue.component('user-name',{
+    props:['name'],
+    template:'<h1>Hello! my {{name}}</h1>'
 })
 
 new Vue({
@@ -93,6 +110,13 @@ new Vue({
         repeatText(string,times){
             return string.repeat(times);
         }
+    },
+    // Locale component
+    components: {
+        'local-component':{
+            template: "<h1>Local Component</h1>"
+        }
+       
     }
    
 
